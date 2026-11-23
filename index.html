@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todd Edmunds | Physical AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: confident industry-analyst portfolio, crisp and factual
+IDEA: an engineering roadmap / release timeline from OT-IT convergence to the AI-native factory
+PICTURE: an SVG arc of eras 2019 to 2026 with one dot per published piece, rising to Physical AI
+COLOUR and TYPE: ice ground, deep ink, one hot pink accent; Space Grotesk titles, Inter body
+LAYOUT: hero band with name left and arc below on mobile, filters, then year-grouped list, footer contact
+*/
+:root{color-scheme:light dark;--bg:light-dark(#dff1f7,#06222e);--ink:light-dark(#06222e,#e6f5fa);--soft:light-dark(#3d5a66,#9fc3d0);--card:light-dark(#ffffff,#0b2f3d);--line:light-dark(#b9dbe7,#164656);--pink:#ff2e7e;--deep:#06222e}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;margin:0;text-wrap:balance}
+h1{font-size:clamp(36px,6vw,52px);line-height:1.05;font-weight:700}
+h2{font-size:clamp(26px,3.4vw,32px);line-height:1.1}
+.hero{background:var(--deep);color:#e6f5fa}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,4vw,56px);align-items:center}
+.role{font-size:17px;color:#9fc3d0;margin:14px 0 0}
+.lede{font-size:17px;max-width:60ch;margin:18px 0 0;color:#d4ebf2}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--pink)}
+.btn.solid{background:var(--pink);color:#fff}
+.btn:focus-visible,.chip:focus-visible,.item a:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.fig{position:relative;min-height:340px}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.cap{font-size:13px;color:#9fc3d0;margin:8px 0 0}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.stat b{display:block;font:700 clamp(28px,4vw,36px)/1 "Space Grotesk",sans-serif;color:#fff}
+.stat span{font-size:13px;color:#9fc3d0}
+.bar{position:sticky;top:0;z-index:2;background:var(--bg);border-bottom:1px solid var(--line);padding:12px max(5vw,16px)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.search{flex:1 1 220px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 16px;font:16px Inter,sans-serif}
+.year{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;padding:28px 0;border-top:1px solid var(--line)}
+.year h3{font-size:32px;line-height:1;color:var(--pink)}
+.list{display:grid;gap:12px}
+.item{background:var(--card);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:start}
+.item a.t{font:700 19px/1.25 "Space Grotesk",sans-serif;text-decoration:none}
+.item a.t:hover{text-decoration:underline;text-decoration-color:var(--pink)}
+.meta{font-size:14px;color:var(--soft)}
+.blurb{grid-column:1/-1;margin:4px 0 0;font-size:15px;max-width:75ch}
+.tag{font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.empty{padding:40px 0;color:var(--soft)}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px)}
+.about p{margin:12px 0 0;max-width:65ch}
+footer{background:var(--deep);color:#9fc3d0;font-size:14px}
+footer a{color:#fff}
+@media(max-width:860px){.hero .wrap,.about{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.year{grid-template-columns:minmax(0,1fr);gap:12px}.item{grid-template-columns:minmax(0,1fr)}.tag{justify-self:start}.fig{min-height:280px}}
+@media(prefers-reduced-motion:no-preference){.dot{animation:pop .6s ease-out both}@keyframes pop{from{opacity:0;transform:translateY(8px)}}}
+</style>
+</head>
+<body>
+<header class="band hero">
+  <div class="wrap">
+    <div>
+      <h1>Todd Edmunds</h1>
+      <p class="role">Global CTO, Smart Manufacturing, Edge Computing and Digital Twins at Dell Technologies</p>
+      <p class="lede">Seven years of writing and speaking on one through line: closing the gap between the factory floor and the data center, then turning that foundation into AI-native, physical AI operations. Published in Forbes, CIO and Manufacturing Dive, featured in eWeek and SiliconANGLE, and heard on podcasts and panels alongside NVIDIA, Intel, Siemens, AT&amp;T and Ericsson.</p>
+      <div class="cta">
+        <a class="btn solid" href="#work">Browse the work</a>
+        <a class="btn" href="https://www.linkedin.com/in/todd-edmunds/">Connect on LinkedIn</a>
+      </div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div><div class="fig" aria-label="Timeline of publications by year and theme"><svg id="arc" role="img"></svg></div><p class="cap">Each dot is a dated piece of work. Pink dots are bylined articles.</p></div>
+  </div>
+</header>
+
+<nav class="bar" aria-label="Filter">
+  <div class="wrap" id="chips">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="Article" aria-pressed="false">Articles</button>
+    <button class="chip" data-f="Podcast" aria-pressed="false">Podcasts and video</button>
+    <button class="chip" data-f="Webinar" aria-pressed="false">Webinars and panels</button>
+    <button class="chip" data-f="Featured" aria-pressed="false">Featured in</button>
+    <input class="search" id="q" type="search" placeholder="Search titles and outlets" aria-label="Search">
+  </div>
+</nav>
+
+<main class="band" id="work"><div class="wrap" id="years"></div></main>
+
+<section class="band" style="background:var(--card)">
+  <div class="wrap about">
+    <div>
+      <h2>About</h2>
+      <p>Todd has spent 35+ years at the intersection of operational technology and IT: building packaging machine control systems, serving as a solution architect at Rockwell Automation, building an IoT business at a systems integrator, and helping build Cisco's industrial automation business.</p>
+      <p>At Dell Technologies he built the smart manufacturing business to more than $2B in annual revenue and now sets strategy for manufacturing infrastructure and physical AI, working across an alliance ecosystem that includes NVIDIA, Microsoft, Accenture, EY, Rockwell Automation and Siemens.</p>
+    </div>
+    <div>
+      <h2>Speaking topics</h2>
+      <p>Physical AI and the AI-native factory. Digital twins from simulation to decision. Edge computing as the foundation for industrial AI. Private 5G and connectivity for operations. Building the business case for scaled manufacturing AI.</p>
+      <p>Frequent speaker at Hannover Messe and NVIDIA GTC. Chairs the Digital Twin Consortium Manufacturing Workgroup. BSEE, Kansas State University; two US patents.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="band"><div class="wrap">Todd Edmunds, Overland Park, Kansas. Reach out on <a href="https://www.linkedin.com/in/todd-edmunds/">LinkedIn</a>. Links checked November 2026.</div></footer>
+
+<script>
+{
+const D=[
+{y:2026,d:"Jun 29, 2026",k:"Article",o:"Forbes",t:"From Digital Twin To AI-Native Factory: Moving Manufacturing From Insight To Action",u:"https://www.forbes.com/sites/delltechnologies/2026/06/29/from-digital-twin-to-ai-native-factory-moving-manufacturing-from-insight-to-action/",b:"How digital twins are becoming AI-driven decision tools, and how manufacturers scale from pilot to production with NVIDIA and Dell edge infrastructure."},
+{y:2026,d:"Mar 3, 2026",k:"Article",o:"Forbes",t:"The End Of \"Smart Manufacturing 1.0\": AI Will Transform Your Use Cases",u:"https://www.forbes.com/sites/delltechnologies/2026/03/03/the-end-of-smart-manufacturing-10-ai-will-transform-your-use-cases/",b:"OEE, predictive maintenance and quality are being rebuilt by agentic AI, computer vision and digital twins. A staged path: visibility, then twins, then AI."},
+{y:2026,d:"2026",k:"Podcast",o:"Six Five Media",t:"Modernizing Manufacturing Without Disruption: How SMBs Move from Visibility to Autonomy",u:"https://www.sixfivemedia.com/content/modernizing-manufacturing-without-disruption-how-smbs-move-from-visibility-to-autonomy",b:"With host David Nicholson: how small and mid-sized manufacturers use AI, digital twins and scalable infrastructure to move toward autonomy."},
+{y:2025,d:"Dec 17, 2025",k:"Article",o:"Forbes",t:"The AI-Native Factory: Remaking Manufacturing With Physical AI",u:"https://www.forbes.com/sites/delltechnologies/2025/12/17/the-ai-native-factory-remaking-manufacturing-with-physical-ai/",b:"Factories as AI-native systems built on digital twins, edge computing and AI-assisted decisions, with three priorities for leaders."},
+{y:2025,d:"Mar 28, 2025",k:"Podcast",o:"The Innovators of Things, Ep. 15",t:"Turning Ideas into Impact with Todd Edmunds",u:"https://innovatorsofthings.com/15",b:"With host Jillian Kaplan: from childhood curiosity to industrial IoT, and the stairwell elevator invention built for his brother."},
+{y:2025,d:"Feb 10, 2025",k:"Article",o:"Manufacturing Dive",t:"Transforming Factories: The AI Blueprint for Success",u:"https://www.manufacturingdive.com/spons/transforming-factories-the-ai-blueprint-for-success/738985/",b:"Co-authored with NVIDIA's Himanshu Iyer: prebuilt AI blueprints for factory copilots and digital twins."},
+{y:2024,d:"Jan 22, 2024",k:"Article",o:"Manufacturing Dive",t:"Revolutionizing Manufacturing with Generative AI and Digital Twins",u:"https://www.manufacturingdive.com/spons/revolutionizing-manufacturing-with-generative-ai-and-digital-twins/703862/",b:"Pairing generative AI with digital twins to improve design, operations and production."},
+{y:2024,d:"2024",k:"Article",o:"Manufacturing Dive Playbook",t:"3 Ways Smart Manufacturers Can Use Generative AI to Accelerate Innovation",u:"https://resources.industrydive.com/3-ways-smart-manufacturers-can-use-generative-ai-to-accelerate-innovation",b:"Playbook on early generative AI use cases in manufacturing and how to adopt them (registration required)."},
+{y:2023,d:"Apr 4, 2023",k:"Article",o:"Forbes",t:"Manufacturing's Emerging Alliance Is A Powerful Enabler",u:"https://www.forbes.com/sites/delltechnologies/2023/04/04/manufacturings-emerging-alliance-is-a-powerful-enabler/",b:"Why IT and OT teams working as one is the real enabler of manufacturing efficiency and innovation."},
+{y:2023,d:"Feb 16, 2023",k:"Featured",o:"SiliconANGLE / theCUBE",t:"Hybrid Computing, Security and Industry 4.0: DXC and Dell Partner on Cloud Transformation",u:"https://siliconangle.com/2023/02/16/hybrid-computing-security-industry-4-0-dxc-dell-partner-cloud-transformation-innovation-delldxc/",b:"theCUBE interview with DXC Technology on hybrid cloud, Industry 4.0 and protecting connected operations."},
+{y:2022,d:"Oct 18, 2022",k:"Webinar",o:"Ericsson Imagine Possible",t:"When Tomorrow Inspires Today",u:"https://www.ericsson.com/en/events/imagine-possible",b:"Connected enterprise panel with Ericsson, Moor Insights, Fraunhofer IPT and Boston University."},
+{y:2022,d:"Sep 15, 2022",k:"Podcast",o:"Bernard Marr Podcast",t:"Industry 4.0: 4 Emerging Technologies Transforming Manufacturing",u:"https://podcasts.bernardmarr.com/1045873/episodes/11303356-industry-4-0-4-emerging-technologies-transforming-manufacturing-with-dell-chief-technology-officer-todd-edmunds",b:"5G, digital twins, AI data management and edge computing with futurist Bernard Marr."},
+{y:2021,d:"Oct 15, 2021",k:"Featured",o:"Digital Engineering 24/7",t:"Digital Twins Evolve in Manufacturing",u:"https://www.digitalengineering247.com/article/digital-twins-evolve-in-manufacturing",b:"Quoted on what makes a true digital twin, alongside NVIDIA Omniverse."},
+{y:2021,d:"2021",k:"Webinar",o:"IoT Solutions World Congress",t:"Practical Deployment Advice for Edge Computing",u:"https://www.brighttalk.com/webcast/14645/488747",b:"Expert panel on edge architecture, standards, economics and deployment at scale."},
+{y:2020,d:"2020",k:"Article",o:"CIO",t:"Digital Twins and the Enterprise Edge",u:"https://www.cio.com/article/3569470/digital-twins-and-the-enterprise-edge.html",b:"Why digital twins depend on edge infrastructure to process factory data quickly and cost-effectively."},
+{y:2020,d:"2020",k:"Article",o:"CIO",t:"Edge Compute in Smart Manufacturing: Essential for True Transformation",u:"https://www.cio.com/article/3546411/edge-compute-in-smart-manufacturing-essential-for-true-transformation.html",b:"Replacing fragmented legacy systems with software-defined, hybrid edge infrastructure."},
+{y:2020,d:"Jul 24, 2020",k:"Featured",o:"RTInsights",t:"Digital Twins in Manufacturing: Uses, Benefits, and Challenges",u:"https://www.rtinsights.com/digital-twins-in-manufacturing-uses-benefits-and-challenges/",b:"Interview on how twins help design, monitor and manage products and plants."},
+{y:2020,d:"Jul 13, 2020",k:"Webinar",o:"Automation.com",t:"Edge and IoT in Manufacturing: Accelerating Digital Adoption and Making a Case for ROI",u:"https://www.automation.com/en-us/assets/webinars/edge-iot-in-manufacturing-accelerating-digital-ado",b:"Panel with Dell, Intel and Siemens on sponsorship, ROI and scaling at the edge."},
+{y:2019,d:"Oct 30, 2019",k:"Article",o:"Dell Technologies Blog",t:"5G and Me: And Manufacturing",u:"https://www.dell.com/en-us/blog/5g-and-me-manufacturing/",b:"5G as an accelerator for smart manufacturing, and the 5G versus Wi-Fi 6 debate."},
+{y:2019,d:"Apr 3, 2019",k:"Article",o:"Dell Edge and IoT Ecosystem",t:"Forging a Path Between the OT/IT Divide",u:"https://edgeecosystem.delltechnologies.com/2019/04/03/forging-a-path-between-the-ot-it-divide/",b:"Co-authored with Jason Shepherd: how operations and IT teams build an industrial IoT approach together."},
+{y:0,d:"On demand",k:"Featured",o:"eWeek",t:"The Rise of the AI-Native Factory: How Physical AI Is Transforming Manufacturing",u:"https://eweek.com/artificial-intelligence/the-rise-of-the-ai-native-factory-how-physical-ai-is-transforming-manufacturing",b:"Quoted on the shift to a continuously learning cyber-physical factory where AI becomes the default operating model."},
+{y:0,d:"On demand",k:"Webinar",o:"engineering.com",t:"Revolutionizing Industry 4.0: Scaling Digital Transformation with AI and Digital Twins",u:"https://www.engineering.com/resources/revolutionizing-industry-4-0-scaling-digital-transformation-with-ai-digital-twins/",b:"Panel with Dell and XMPro on AI-powered digital twins for safe, low-cost what-if testing."},
+{y:0,d:"On demand",k:"Webinar",o:"BrightTALK with AT&T",t:"Leveraging Hybrid Private Cellular with MEC for Manufacturing, Transportation and Supply Chain",u:"https://www.brighttalk.com/webcast/13935/625018",b:"With AT&T's 5G Center of Excellence: private cellular and multi-access edge computing for operations."},
+{y:0,d:"On demand",k:"Webinar",o:"MeriTalk",t:"IT to Outcomes in American Manufacturing: Priorities for Success",u:"https://www.mypossibilit.com/event/it-to-outcomes-american-manufacturing-priorities-for-success/",b:"Panel on connected edge and data-driven practices for operations, security and innovation."},
+{y:0,d:"On demand",k:"Article",o:"Dell Technologies eGuide",t:"A Moment of Remarkable Opportunity: 5G and the Remarkable Factory",u:"https://delltechnologies.com/asset/en-my/solutions/industry-solutions/briefs-summaries/telecom-5g-eguide.pdf",b:"How 5G networks can power manufacturing's next productivity revolution (PDF)."}
+];
+const ERA=[[2019,"OT / IT"],[2020,"Edge"],[2021,"Digital twins"],[2023,"Gen AI"],[2025,"Physical AI"]];
+const label={Article:"Article",Podcast:"Podcast",Webinar:"Panel",Featured:"Featured"};
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const n=k=>D.filter(x=>x.k===k).length;
+document.getElementById('stats').innerHTML=[[n('Article'),'bylined articles'],[n('Podcast')+n('Webinar'),'podcasts and panels'],[n('Featured'),'times featured']].map(([v,l])=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`).join('');
+let f='all',q='';
+const yrs=document.getElementById('years');
+function render(){
+  const rows=D.filter(x=>(f==='all'||x.k===f)&&(!q||(x.t+' '+x.o+' '+x.b).toLowerCase().includes(q)));
+  const ys=[...new Set(rows.map(x=>x.y))];
+  yrs.innerHTML=ys.length?ys.map(y=>`<section class="year"><h3>${y||"On demand"}</h3><div class="list">${rows.filter(x=>x.y===y).map(x=>`<article class="item"><div><a class="t" href="${x.u}">${esc(x.t)}</a><div class="meta">${esc(x.o)} · ${esc(x.d)}</div></div><span class="tag">${label[x.k]}</span><p class="blurb">${esc(x.b)}</p></article>`).join('')}</div></section>`).join(''):'<p class="empty">Nothing matches that search. Try a broader word such as twin or edge.</p>';
+}
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;f=b.dataset.f;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===b));render()});
+document.getElementById('q').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();render()});
+render();
+const s=document.getElementById('arc');
+const draw=()=>{
+  const W=s.clientWidth,H=s.clientHeight,small=W<520;
+  const x0=24,x1=W-24,yb=H-56,yt=78;
+  const X=y=>x0+(y-2019)/7*(x1-x0),Y=y=>yb-Math.pow((y-2019)/7,1.6)*(yb-yt);
+  let p='';for(let y=2019;y<=2026.001;y+=0.1)p+=(p?'L':'M')+X(y).toFixed(1)+','+Y(y).toFixed(1);
+  const cnt={};const dots=D.filter(x=>x.y).map(x=>{const i=cnt[x.y]=(cnt[x.y]||0)+1;return `<circle class="dot" style="animation-delay:${(x.y-2019)*0.08}s" cx="${X(x.y)}" cy="${Y(x.y)-i*13}" r="5" fill="${x.k==='Article'?'#ff2e7e':'#e6f5fa'}"/>`}).join('');
+  const eras=ERA.map(([y,l],i)=>`<line x1="${X(y)}" x2="${X(y)}" y1="${yb+6}" y2="${yb+14}" stroke="#9fc3d0"/>`+(small&&i%2?'':`<text x="${X(y)}" y="${yb+32}" fill="#9fc3d0" font-size="12" text-anchor="${i===ERA.length-1?'end':'start'}" font-family="Inter">${l}</text>`)).join('');
+  const yrsL=small?'':[2019,2021,2023,2025].map(y=>`<text x="${X(y)}" y="${yb+48}" fill="#5f8794" font-size="11" font-family="Inter">${y}</text>`).join('');
+  s.innerHTML=`<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#2a6f86"/><stop offset="1" stop-color="#ff2e7e"/></linearGradient></defs>
+  <line x1="${x0}" x2="${x1}" y1="${yb}" y2="${yb}" stroke="#164656"/>
+  <path d="${p}" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>${dots}${eras}${yrsL}
+  <circle cx="${X(2026)}" cy="${Y(2026)}" r="10" fill="none" stroke="#ff2e7e" stroke-width="2"/>`;
+};
+const ro=new ResizeObserver(draw);ro.observe(s);
+}
+</script>
+</body>
+</html>
